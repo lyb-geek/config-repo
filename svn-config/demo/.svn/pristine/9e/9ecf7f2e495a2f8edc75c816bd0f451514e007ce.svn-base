@@ -1,0 +1,9 @@
+server.port=8095
+spring.application.name=springcloud-user-consumer-feign
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${server.port}}
+eureka.client.serviceUrl.defaultZone=http://admin:123456@localhost:8761/eureka/
+eureka.client.healthcheck.enabled=true
+#把hystrix关掉，防止第一次fegin访问超时
+feign.hystrix.enabled=false
+logging.level.com.springcloud.demo.consumer.feign.EurekaFeginClient: DEBUG

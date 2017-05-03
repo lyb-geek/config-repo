@@ -1,0 +1,26 @@
+server:
+  port: 9998
+spring:
+  application:
+    name: springcloud-user-hystrix-turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+turbine:
+  aggregator:
+    clusterConfig: SPRINGCLOUD-USER-CONSUMER-RIBBON-WITH-HYSTRIX-WITH-MANAGEMENTPORT
+  appConfig: springcloud-user-consumer-ribbon-with-hystrix-with-managementPort
+ 
+#turbine.instanceUrlSuffix.SPRINGCLOUD-USER-CONSUMER-RIBBON-WITH-HYSTRIX-WITH-MANAGEMENTPORT: /ribbon/hystrix.stream
+  
+logging: 
+  level:
+    root: INFO
+    com.netflix.turbine.monitor: DEBUG
+    
+
+  

@@ -1,0 +1,17 @@
+server:
+  port: 9992
+spring:
+  application:
+    name: springcloud-user-sidecar
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+sidecar:
+  port: 8083
+  health-uri: http://localhost:8083/health.json
+
+     

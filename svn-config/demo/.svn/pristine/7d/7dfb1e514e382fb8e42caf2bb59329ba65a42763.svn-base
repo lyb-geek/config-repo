@@ -1,0 +1,10 @@
+server.port=8097
+server.context-path=/ribbon
+management.port=8098
+spring.application.name=springcloud-user-consumer-ribbon-with-hystrix-with-managementPort
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+eureka.client.serviceUrl.defaultZone=http://admin:123456@localhost:8761/eureka/
+eureka.client.healthcheck.enabled=true
+eureka.instance.metadata-map.management.port=8098
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=5000

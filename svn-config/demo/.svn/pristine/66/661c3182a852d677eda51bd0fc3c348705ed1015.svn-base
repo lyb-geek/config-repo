@@ -1,0 +1,7 @@
+server.port=8090
+user.provider.addr=http://localhost:8080
+spring.application.name=springcloud-user-consumer
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${server.port}}
+eureka.client.serviceUrl.defaultZone=http://admin:123456@localhost:8761/eureka/
+eureka.client.healthcheck.enabled=true
